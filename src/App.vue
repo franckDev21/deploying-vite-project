@@ -7,7 +7,11 @@
     <router-link :to="{name: 'home'}">Home</router-link> |
     <router-link :to="{name: 'about'}">About</router-link>
   </header>
-  <router-view></router-view>
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component"/>
+    </transition>
+  </router-view>
 </template>
 
 <style lang="scss">
